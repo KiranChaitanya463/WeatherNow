@@ -3,11 +3,13 @@
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(to right, #74ebd5, #acb6e5);
+  background: url('../assets/weather.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .app {
