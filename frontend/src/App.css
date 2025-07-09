@@ -1,38 +1,99 @@
-.App {
-  text-align: center;
-}
+/* App.css */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(to right, #74ebd5, #acb6e5);
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 100vh;
+}
+
+.app {
+  text-align: center;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.search-box {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.search-box input {
+  padding: 0.6rem;
+  width: 60%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.search-box button {
+  padding: 0.6rem 1rem;
+  background-color: #00aaff;
   color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.search-box button:hover {
+  background-color: #007acc;
 }
 
-@keyframes App-logo-spin {
+.weather-card {
+  background-color: #f0f8ff;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-top: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.weather-card h2 {
+  margin: 0;
+  color: #444;
+}
+
+.temp {
+  font-size: 2.5rem;
+  color: #00aaff;
+  margin: 0.5rem 0;
+}
+
+.desc {
+  font-style: italic;
+  color: #555;
+}
+
+.error {
+  color: red;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(10px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }

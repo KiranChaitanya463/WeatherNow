@@ -1,34 +1,50 @@
-import React, { useState } from 'react';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
+  const [error, setError] = useState(null);
 
-  const handleSearch = async () => {
-    const response = await fetch(`http://localhost:8080/api/weather?city=${city}`);
-    const data = await response.json();
-    setWeather(data);
+  const getWeather = async () => {
+    if (!city) return;
+
+    try {
+      const res = await fetch(`http://localhost:8080/api/weather?city=${city}`);
+      if (!res.ok) throw new Error("City not found");
+
+      const data = await res.json();
+      setWeather(data);
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+      setWeather(null);
+    }
   };
 
   return (
-    <div className="App">
-      <h1>Weather App</h1>
+    <div className="app">
+      <h1 className="title">🌦️ WeatherNow</h1>
 
-      <input
-        type="text"
-        value={city}
-        onChange={e => setCity(e.target.value)}
-        placeholder="Enter city"
-      />
+      <div className="search-box">
+        <input
+          type="text"
+          placeholder="Enter city name..."
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        />
+        <button onClick={getWeather}>Get Weather</button>
+      </div>
 
-      <button onClick={handleSearch}>Get Weather</button>
+      {error && <p className="error">{error}</p>}
 
       {weather && (
-        <div>
-          <h2>{weather.name}</h2>
-          <p>Temperature: {weather.main.temp} °C</p>
-          <p>Condition: {weather.weather[0].description}</p>
+        <div className="weather-card">
+          <h2>
+            {weather.city}, {weather.country}
+          </h2>
+          <p className="temp">{weather.temperature}°C</p>
+          <p className="desc">{weather.description}</p>
         </div>
       )}
     </div>
