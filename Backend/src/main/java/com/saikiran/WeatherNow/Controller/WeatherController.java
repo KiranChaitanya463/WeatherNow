@@ -15,6 +15,7 @@ public class WeatherController {
     @Autowired
     private WeatherService service;
 
+    
     @GetMapping
     public WeatherDto getWeather(@RequestParam String city){
         return service.getWeather(city);
