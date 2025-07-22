@@ -18,7 +18,6 @@
 - React
 - Axios
 - CSS (with background image styling)
-- Bootstrap (optional)
 
 ## 📦 Features
 
