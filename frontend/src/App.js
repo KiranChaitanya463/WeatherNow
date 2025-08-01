@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1 className="title">🌦️ WeatherNow</h1>
+      <h1 className="title">🌦️ WeatherNow </h1>
 
       <div className="search-box">
         <input
